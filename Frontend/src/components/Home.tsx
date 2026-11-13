@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const LoginIcon = (): React.JSX.Element => (
   <svg
@@ -46,6 +47,7 @@ const UserPlusIcon = (): React.JSX.Element => (
 );
 
 const Home = (): React.JSX.Element => {
+  const navigate = useNavigate();
   return (
     <main className="relative isolate min-h-[100dvh] overflow-hidden bg-slate-950 text-white">
 
@@ -88,12 +90,14 @@ const Home = (): React.JSX.Element => {
 
           <div className="mt-8 flex w-full max-w-md flex-col gap-3 sm:mt-10 sm:flex-row">
 
-            <button className="group flex flex-1 items-center justify-center gap-2 rounded-2xl bg-cyan-400 px-5 py-4 text-sm font-extrabold text-slate-950">
-              <LoginIcon />
+            <button onClick={() => navigate("/login")}
+            className="group flex flex-1 items-center cursor-pointer hover:bg-cyan-300 hover:text-slate-950 justify-center gap-2 rounded-2xl bg-cyan-400 px-5 py-4 text-sm font-extrabold text-slate-950">
               Login
+               <LoginIcon />
             </button>
 
-            <button className="flex items-center justify-center gap-2 rounded-2xl border border-white/25 bg-white/10 px-5 py-4 text-sm font-bold text-white backdrop-blur-md">
+            <button onClick={() => navigate("/register")}
+            className="flex cursor-pointer items-center justify-center gap-2 rounded-2xl border border-white/25 bg-white/10 px-5 py-4 text-sm font-bold text-white backdrop-blur-md">
               Create account
               <UserPlusIcon />
             </button>
